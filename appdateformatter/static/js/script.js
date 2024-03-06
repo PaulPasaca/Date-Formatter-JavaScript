@@ -1,34 +1,34 @@
-const currentDateParagraph = document.getElementById("current-date");
-const dateOptionsSelectElement = document.getElementById("date-options");
+const actualFechaParrafo = document.getElementById("current-date");
+const opcionesFechaSelec = document.getElementById("date-options");
 
 const date = new Date();
-const day = date.getDate();
-const month = date.getMonth() + 1;
-const year = date.getFullYear();
-const hours = date.getHours();
-const minutes = date.getMinutes();
+const dia = date.getDate();
+const mes = date.getMonth() + 1;
+const año = date.getFullYear();
+const horas = date.getHours();
+const minutos = date.getMinutes();
 
 
-const formattedDate = `${day}-${month}-${year}`;
-currentDateParagraph.textContent = formattedDate;
-dateOptionsSelectElement.addEventListener("change", () => {
-    console.log(dateOptionsSelectElement.value)
+const fechaFormateada = `${dia}-${mes}-${año}`;
+actualFechaParrafo.textContent = fechaFormateada;
+opcionesFechaSelec.addEventListener("change", () => {
+    console.log(opcionesFechaSelec.value)
 
-    switch (dateOptionsSelectElement.value) {
+    switch (opcionesFechaSelec.value) {
         
         case "yyyy-mm-dd":
-            currentDateParagraph.textContent = formattedDate
+            actualFechaParrafo.textContent = fechaFormateada
                 .split("-")
                 .reverse()
                 .join("-");
-                console.log(currentDateParagraph)
+                console.log(actualFechaParrafo)
             break;
         case "mm-dd-yyyy-h-mm":
-            currentDateParagraph.textContent = `${month}-${day}-${year} ${hours} Hours ${minutes} Minutes`;
+            actualFechaParrafo.textContent = `${mes}-${dia}-${año} ${horas} Horas ${minutos} Minutos`;
             break;
 
         default:
-            currentDateParagraph.textContent = formattedDate
+            actualFechaParrafo.textContent = fechaFormateada
 
     }
 });
